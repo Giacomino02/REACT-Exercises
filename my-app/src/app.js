@@ -10,7 +10,7 @@ export class App extends React.Component {
             <div>
                 <Hello />
                 <Welcome name={name} age={20}/>
-                <Counter />
+                <Counter initialValue={0} incrementInterval={1000} incrementAmount={1}/>
             </div>
         )
     }
