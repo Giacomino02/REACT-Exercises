@@ -6,6 +6,7 @@ import ClickCounter from './clickCounter';
 import ClickTracker from './clickTracker';
 import Interactivewelcome from './interactiveWelcome';
 import Login from './login';
+import UncontrolledLogin from './uncontrolledLogin';
 
 const name = <strong>Alfio</strong>
 export class App extends React.Component {
@@ -19,6 +20,7 @@ export class App extends React.Component {
                 <ClickTracker/>
                 <Interactivewelcome />
                 <Login />
+                <UncontrolledLogin />
             </div>
         )
     }
