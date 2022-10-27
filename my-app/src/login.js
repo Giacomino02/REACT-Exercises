@@ -19,6 +19,10 @@ class Login extends React.Component {
         });
     };
 
+    clickLoginButton = () => {
+        this.props.onLogin(this.state);
+    }
+
     render() {
         return (
             <form>
@@ -36,6 +40,8 @@ class Login extends React.Component {
                     Remember me
                     <input type='checkbox' name='checkbox' checked={this.state.checkbox} onChange={this.handleInputEvent}/>
                 </label>
+
+                <button type="button" name="login" onClick={this.clickLoginButton} disabled={this.state.username === '' && this.state.password === ''}>Login</button>
             </form>
         );
     }
