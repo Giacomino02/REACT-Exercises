@@ -23,25 +23,35 @@ class Login extends React.Component {
         this.props.onLogin(this.state);
     }
 
+    clickResetButton = () => {
+        this.setState({
+            username: '',
+            password: '',
+            checkbox: false
+        })
+    }
+
     render() {
         return (
             <form>
                 <label>
                     Name
-                    <input type='text' name='username' value={this.state.username} onChange={this.handleInputEvent}/>
+                    <input type='text' name='username' value={this.state.username} onChange={this.handleInputEvent} />
                 </label>
 
                 <label>
-                    Password 
-                    <input type='password' name='password' value={this.state.password} onChange={this.handleInputEvent}/>
+                    Password
+                    <input type='password' name='password' value={this.state.password} onChange={this.handleInputEvent} />
                 </label>
 
                 <label>
                     Remember me
-                    <input type='checkbox' name='checkbox' checked={this.state.checkbox} onChange={this.handleInputEvent}/>
+                    <input type='checkbox' name='checkbox' checked={this.state.checkbox} onChange={this.handleInputEvent} />
                 </label>
 
                 <button type="button" name="login" onClick={this.clickLoginButton} disabled={this.state.username === '' && this.state.password === ''}>Login</button>
+
+                <button type="button" name="reset" onClick={this.clickResetButton}>Reset</button>
             </form>
         );
     }
