@@ -7,6 +7,7 @@ import ClickTracker from './clickTracker';
 import Interactivewelcome from './interactiveWelcome';
 import Login from './login';
 import UncontrolledLogin from './uncontrolledLogin';
+import TodoList from './todoList';
 
 const name = <strong>Alfio</strong>
 export class App extends React.Component {
@@ -21,6 +22,7 @@ export class App extends React.Component {
                 <Interactivewelcome />
                 <Login />
                 <UncontrolledLogin />
+                <TodoList />
             </div>
         )
     }
