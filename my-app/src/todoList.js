@@ -10,9 +10,10 @@ class TodoList extends React.Component {
         })
     }
 
-    handleInputSubmit= () => {
+    handleInputSubmit= (event) => {
         this.setState({
-            items: [...this.state.items, this.state.newItems]
+            items: [...this.state.items, this.state.newItems],
+            input: ''
         })
     }
 
@@ -21,9 +22,9 @@ class TodoList extends React.Component {
             <>
                 <label>
                     Name
-                    <input name="input" value={this.state.input} onChange={this.handleInputChange} autoFocus/>
+                    <input name="input" type='text' value={this.state.input} onChange={this.handleInputChange} autoFocus/>
                 </label>
-                <button onClick={this.handleInputSubmit}>Submit</button>
+                <button onClick={this.handleInputSubmit} disabled={!this.state.newItems}>Submit</button>
                 <ul>
                     {this.state.items.map((items, index) => (
                         <li key={index}>{items}</li>
