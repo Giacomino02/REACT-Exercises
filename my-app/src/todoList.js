@@ -17,11 +17,19 @@ class TodoList extends React.Component {
         })
     }
 
-    resetItemsList = () => {
+    clearItemsList = () => {
         this.setState({
             items: []
         })
     }
+
+    removeItemsList = (removedItem) => {
+		const filter = this.state.items.filter((items) => items !== removedItem);
+
+		this.setState({
+			items: [ ...filter ]
+		});
+	};
 
     render() {
         return (
@@ -30,11 +38,15 @@ class TodoList extends React.Component {
                     Name
                     <input name="input" type='text' value={this.state.input} onChange={this.handleInputChange} autoFocus/>
                 </label>
+
                 <button onClick={this.handleInputSubmit} disabled={!this.state.newItems}>Submit</button>
-                <button name="reset" onClick={this.resetItemsList}>Reset</button>
+                <button name="reset" onClick={this.clearItemsList}>Reset</button>
+                
                 <ul>
                     {this.state.items.map((items, index) => (
-                        <li key={index}>{items}</li>
+                        <li key={index}>{items}
+                            <button onClick={() => {this.removeItemsList(items)}}>remove list</button>
+                        </li>
                     ))}
                 </ul>
             </>
