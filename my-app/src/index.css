@@ -1,0 +1,6 @@
+.welcome {
+    background-color: lightgreen;
+    border: 2px solid darkgreen;
+    
+    display: inline;
+}
