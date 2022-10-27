@@ -49,7 +49,7 @@ class Login extends React.Component {
                     <input type='checkbox' name='checkbox' checked={this.state.checkbox} onChange={this.handleInputEvent} />
                 </label>
 
-                <button type="button" name="login" onClick={this.clickLoginButton} disabled={this.state.username === '' && this.state.password === ''}>Login</button>
+                <button type="button" name="login" onClick={this.clickLoginButton} disabled={this.state.username === '' && this.state.password === ''} style={{backgroundColor: this.state.password.length < 8 ? 'red' : 'green', /* also added color */ color: this.state.password.length > 8 ? 'white' : 'black'}}>Login</button>
 
                 <button type="button" name="reset" onClick={this.clickResetButton}>Reset</button>
             </form>
