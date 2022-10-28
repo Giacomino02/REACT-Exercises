@@ -11,6 +11,7 @@ import TodoList from './todoList';
 import { Container } from './container';
 import { LanguageContext } from './languageContext';
 import { DisplayLanguage } from './displayLanguage';
+import { Sum } from './sum';
 
 const name = <strong>Alfio</strong>
 export class App extends React.Component {
@@ -60,6 +61,9 @@ export class App extends React.Component {
                         <DisplayLanguage />
                     </LanguageContext.Provider>
                 </div>
+
+                <Sum numbers={[2, 5, 10]}/>
+                
 
             </div>
         )
