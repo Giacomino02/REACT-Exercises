@@ -9,9 +9,14 @@ import Login from './login';
 import UncontrolledLogin from './uncontrolledLogin';
 import TodoList from './todoList';
 import { Container } from './container';
+import { LanguageContext } from './languageContext';
+import { DisplayLanguage } from './displayLanguage';
 
 const name = <strong>Alfio</strong>
 export class App extends React.Component {
+    state= {
+        language: 'en'
+    }
     render() {
         return (
             <div>
@@ -40,6 +45,10 @@ export class App extends React.Component {
                         Lorem ipsum dolor sit amet
                     </p>
                 </Container>
+
+                <LanguageContext.Provider value={this.state.language}>
+                    <DisplayLanguage />
+                </LanguageContext.Provider>
             </div>
         )
     }
