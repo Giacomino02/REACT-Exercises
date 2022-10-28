@@ -8,6 +8,7 @@ import Interactivewelcome from './interactiveWelcome';
 import Login from './login';
 import UncontrolledLogin from './uncontrolledLogin';
 import TodoList from './todoList';
+import { Container } from './container';
 
 const name = <strong>Alfio</strong>
 export class App extends React.Component {
@@ -23,6 +24,11 @@ export class App extends React.Component {
                 <Login />
                 <UncontrolledLogin />
                 <TodoList />
+                <Container title={<h1>Title</h1>}>
+                    <p>
+                        Lorem ipsum dolor sit amet
+                    </p>
+                </Container>
             </div>
         )
     }
