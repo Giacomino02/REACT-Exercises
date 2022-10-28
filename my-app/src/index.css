@@ -4,3 +4,8 @@
     
     display: inline;
 }
+
+.container {
+    background-color: white;
+    border: 1px solid red;
+}
