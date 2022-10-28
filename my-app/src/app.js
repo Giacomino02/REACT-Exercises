@@ -14,9 +14,14 @@ import { DisplayLanguage } from './displayLanguage';
 
 const name = <strong>Alfio</strong>
 export class App extends React.Component {
-    state= {
-        language: 'en'
+    state = {
+        lang: 'English'
     }
+    handleLanguageChange = (event) => {
+        this.setState({
+            lang: event.target.value
+        });
+    };
     render() {
         return (
             <div>
@@ -46,9 +51,16 @@ export class App extends React.Component {
                     </p>
                 </Container>
 
-                <LanguageContext.Provider value={this.state.language}>
-                    <DisplayLanguage />
-                </LanguageContext.Provider>
+                <div>
+                    <select value={this.state.lang} onChange={this.handleLanguageChange}>
+                        <option value="English">English</option>
+                        <option value="Italiano">Italiano</option>
+                    </select>
+                    <LanguageContext.Provider value={this.state.lang}>
+                        <DisplayLanguage />
+                    </LanguageContext.Provider>
+                </div>
+
             </div>
         )
     }
