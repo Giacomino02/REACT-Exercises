@@ -23,8 +23,8 @@ class TodoList extends React.Component {
         })
     }
 
-    removeItemsList = (removedItem) => {
-		const filter = this.state.items.filter((items) => items !== removedItem);
+    removeItemsList = (removeItem) => {
+		const filter = this.state.items.filter((items) => items !== removeItem);
 
 		this.setState({
 			items: [ ...filter ]
@@ -42,13 +42,9 @@ class TodoList extends React.Component {
                 <button onClick={this.handleInputSubmit} disabled={!this.state.newItems}>Submit</button>
                 <button name="reset" onClick={this.clearItemsList}>Reset</button>
                 
-                <ul>
-                    {this.state.items.map((items, index) => (
-                        <li key={index}>{items}
-                            <button onClick={() => {this.removeItemsList(items)}}>remove list</button>
-                        </li>
-                    ))}
-                </ul>
+                <div>
+                    {this.props.render(this.state.items, this.removeItemsList)}
+                </div>
             </>
         )
     }

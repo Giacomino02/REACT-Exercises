@@ -16,14 +16,25 @@ export class App extends React.Component {
         return (
             <div>
                 <Hello />
-                <Welcome name={name} age={20}/>
-                <Counter initialValue={0} incrementInterval={1000} incrementAmount={1}/>
+                <Welcome name={name} age={20} />
+                <Counter initialValue={0} incrementInterval={1000} incrementAmount={1} />
                 <ClickCounter />
-                <ClickTracker/>
+                <ClickTracker />
                 <Interactivewelcome />
                 <Login />
                 <UncontrolledLogin />
-                <TodoList />
+                <TodoList render={(items, removeItem) => {
+                    return (
+                        items.map((items, index) => (
+                            <div key={index}>
+                                {items}
+                                <button key={index} onClick={() => { removeItem(items) }}>remove</button>
+                            </div>
+                        ))
+                    )
+                }
+                }
+                />
                 <Container title={<h1>Title</h1>}>
                     <p>
                         Lorem ipsum dolor sit amet
