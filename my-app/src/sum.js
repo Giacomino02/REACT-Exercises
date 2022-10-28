@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Sum({numbers}){
+export function Sum({numbers=[2, 5, 10]}){
     const result = numbers.reduce((a, b) => a + b)
     return (
         <div>
