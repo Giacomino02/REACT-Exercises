@@ -9,27 +9,30 @@ import Login from './login';
 import UncontrolledLogin from './uncontrolledLogin';
 import TodoList from './todoList';
 import { Container } from './container';
-import { LanguageContext } from './languageContext';
-import { DisplayLanguage } from './displayLanguage';
+// import { LanguageContext } from './languageContext';
+// import { DisplayLanguage } from './displayLanguage';
 import { Sum } from './sum';
 
 const name = <strong>Alfio</strong>
-export class App extends React.Component {
-    state = {
-        lang: 'English'
+export function App() {
+    // state = {
+    //     lang: 'English'
+    // }
+    function onCounterChange(count){
+        console.log('count', count);
     }
-    handleLanguageChange = (event) => {
-        this.setState({
-            lang: event.target.value
-        });
-    };
-    render() {
+
+    // handleLanguageChange = (event) => {
+    //     this.setState({
+    //         lang: event.target.value
+    //     });
+    // };
         return (
             <div>
                 <Hello />
                 <Welcome name={name} age={20} />
                 <Counter initialValue={0} incrementInterval={1000} incrementAmount={1} />
-                <ClickCounter />
+                <ClickCounter onCounterChange={onCounterChange}/>
                 <ClickTracker />
                 <Interactivewelcome />
                 <Login />
@@ -52,7 +55,7 @@ export class App extends React.Component {
                     </p>
                 </Container>
 
-                <div>
+                {/* <div>
                     <select value={this.state.lang} onChange={this.handleLanguageChange}>
                         <option value="English">English</option>
                         <option value="Italiano">Italiano</option>
@@ -60,12 +63,11 @@ export class App extends React.Component {
                     <LanguageContext.Provider value={this.state.lang}>
                         <DisplayLanguage />
                     </LanguageContext.Provider>
-                </div>
+                </div> */}
 
                 <Sum />
                 
 
             </div>
         )
-    }
 }
