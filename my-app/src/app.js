@@ -13,6 +13,7 @@ import { Container } from './container';
 // import { DisplayLanguage } from './displayLanguage';
 import { Sum } from './sum';
 import { GithubUser } from './GithubUser';
+import { GithubUserList } from './GithubUserList';
 
 const name = <strong>Alfio</strong>
 export function App() {
@@ -69,6 +70,7 @@ export function App() {
                 <Sum />
                 
                 <GithubUser />
+                <GithubUserList />
                 
             </div>
         )
