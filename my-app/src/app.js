@@ -14,6 +14,7 @@ import { Container } from './container';
 import { Sum } from './sum';
 import { GithubUser } from './GithubUser';
 import { GithubUserList } from './GithubUserList';
+import { HookCounter } from './HookCounter';
 
 const name = <strong>Alfio</strong>
 export function App() {
@@ -71,7 +72,7 @@ export function App() {
                 
                 <GithubUser />
                 <GithubUserList />
-                
+                <HookCounter />
             </div>
         )
 }
