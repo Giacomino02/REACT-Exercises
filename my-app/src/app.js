@@ -12,6 +12,7 @@ import { Container } from './container';
 // import { LanguageContext } from './languageContext';
 // import { DisplayLanguage } from './displayLanguage';
 import { Sum } from './sum';
+import { GithubUser } from './GithubUser';
 
 const name = <strong>Alfio</strong>
 export function App() {
@@ -67,7 +68,8 @@ export function App() {
 
                 <Sum />
                 
-
+                <GithubUser />
+                
             </div>
         )
 }
