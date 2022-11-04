@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 
-export function GithubUser({ username = 'Giacomino02' }) {
+export function useGithubUser(username) {
     const url = `https://api.github.com/users/${username}`
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
@@ -22,6 +22,12 @@ export function GithubUser({ username = 'Giacomino02' }) {
     );
 
     if (error) return `Error: ${error.message}`;
+    return {
+        data: data
+    }
+}
+export function HookGithubUser({username = 'Giacomino02'}) {
+    const {data} = useGithubUser(username)
     return (
         <>
             <img src={data.avatar_url} alt='user' className="avatar-profile" />
@@ -29,4 +35,5 @@ export function GithubUser({ username = 'Giacomino02' }) {
             <a src={data.html_url}>link</a>
         </>
     )
+
 }
