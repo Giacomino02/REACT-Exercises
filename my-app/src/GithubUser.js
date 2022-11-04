@@ -61,6 +61,7 @@ export function HookGithubUser({username = 'Giacomino02'}) {
         <>
             <img src={data.avatar_url} alt='user' className="avatar-profile" />
             <h2>{data.name}</h2>
+            <p>{data.html_url}</p>
         </>
     )
 
