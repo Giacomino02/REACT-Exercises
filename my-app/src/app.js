@@ -17,6 +17,7 @@ import { HookCounter } from './HookCounter';
 import { HookForm } from './HookForm';
 import { HookGithubUser } from './GithubUser';
 import { CardDetails } from './CardDetails';
+import { LanguageComponent } from './languageContext';
 
 const name = <strong>Alfio</strong>
 export function App() {
@@ -43,6 +44,8 @@ export function App() {
                 <Hello />
                 <Welcome name={name} age={20} />
                 <Counter />
+
+
                 <ClickCounter onCounterChange={onCounterChange}/>
                 <ClickTracker />
                 <Interactivewelcome />
@@ -66,6 +69,7 @@ export function App() {
                     </p>
                 </Container>
 
+                <LanguageComponent/>
                 {/* <div>
                     <select value={this.state.lang} onChange={this.handleLanguageChange}>
                         <option value="English">English</option>
