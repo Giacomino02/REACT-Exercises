@@ -18,13 +18,12 @@ import { HookForm } from './HookForm';
 import { HookGithubUser } from './GithubUser';
 import { CardDetails } from './CardDetails';
 import { LanguageComponent } from './languageContext';
+import { FilteredList } from './FilteredList';
 
 const name = <strong>Alfio</strong>
 export function App() {
-    // state = {
-    //     lang: 'English'
-    // }
-    function onCounterChange(count){
+
+    function onCounterChange(count) {
         console.log('count', count);
     }
 
@@ -34,43 +33,47 @@ export function App() {
         color: 'White',
         year: '2008'
     }
-    // handleLanguageChange = (event) => {
-    //     this.setState({
-    //         lang: event.target.value
-    //     });
-    // };
-        return (
-            <div>
-                <Hello />
-                <Welcome name={name} age={20} />
-                <Counter />
+
+    const usersArray = [
+        { name: 'Giacomo', id: 0, age: 19 },
+        { name: 'Alfio', id: 1, age: 40 },
+        { name: 'Janman', id: 2, age: 22 },
+        { name: 'Karim', id: 3, age: 26 },
+        { name: 'Davide', id: 4, age: 26 },
+        { name: 'Giada', id: 5, age: 27 },
+    ]
+    return (
+        <div>
+            <Hello />
+            <Welcome name={name} age={20} />
+            <Counter />
 
 
-                <ClickCounter onCounterChange={onCounterChange}/>
-                <ClickTracker />
-                <Interactivewelcome />
-                <Login />
-                <UncontrolledLogin />
-                <TodoList render={(items, removeItem) => {
-                    return (
-                        items.map((items, index) => (
-                            <div key={index}>
-                                {items}
-                                <button key={index} onClick={() => { removeItem(items) }}>remove</button>
-                            </div>
-                        ))
-                    )
-                }
-                }
-                />
-                <Container title={<h1>Title</h1>}>
-                    <p>
-                        Lorem ipsum dolor sit amet
-                    </p>
-                </Container>
+            <ClickCounter onCounterChange={onCounterChange} />
+            <ClickTracker />
+            <Interactivewelcome />
+            <Login />
+            <UncontrolledLogin />
+            <TodoList render={(items, removeItem) => {
+                return (
+                    items.map((items, index) => (
+                        <div key={index}>
+                            {items}
+                            <button key={index} onClick={() => { removeItem(items) }}>remove</button>
+                        </div>
+                    ))
+                )
+            }
+            }
+            />
+            <Container title={<h1>Title</h1>}>
+                <p>
+                    Lorem ipsum dolor sit amet
+                </p>
+            </Container>
 
-                <LanguageComponent/>
-                {/* <div>
+            <LanguageComponent />
+            {/* <div>
                     <select value={this.state.lang} onChange={this.handleLanguageChange}>
                         <option value="English">English</option>
                         <option value="Italiano">Italiano</option>
@@ -80,14 +83,16 @@ export function App() {
                     </LanguageContext.Provider>
                 </div> */}
 
-                <Sum />
-                
-                <HookGithubUser />
-                <GithubUserList />
-                <HookCounter />
-                <HookForm />
+            <Sum />
 
-                <CardDetails initialData={initialData}/>
-            </div>
-        )
+            <HookGithubUser />
+            <GithubUserList />
+            <HookCounter />
+            <HookForm />
+
+            <CardDetails initialData={initialData} />
+
+            <FilteredList usersArray={usersArray} />
+        </div>
+    )
 }
