@@ -1,39 +1,94 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios'
+// import axios from 'axios'
 
-export function useGithubUser(username) {
-    const url = `https://api.github.com/users/${username}`
-    const [data, setData] = useState([]);
-    const [error, setError] = useState(null);
+export function useGithubUser() {
+	const [ inputValue, setInputValue ] = useState('');
+	const [ fetchUser, setUserFetch ] = useState('');
 
-    useEffect(
-        () => {
-            axios
-                .get(url)
-                .then((response) => {
-                    setData(response.data);
-                    console.log(response);
-                })
-                .catch((error) => {
-                    setError(error);
-                });
-        },
-        [username]
-    );
+	const [ loading, setLoading ] = useState(false);
+	const [ data, setData ] = useState([]);
+	const [ error, setError ] = useState(null);
 
-    if (error) return `Error: ${error.message}`;
-    return {
-        data: data
-    }
+	function handleInputChange(event) {
+		const value = event.target.value;
+		setInputValue(value);
+	}
+
+	function handleFetchUser() {
+		setUserFetch(inputValue);
+	}
+
+	useEffect(
+		() => {
+			if (fetchUser !== '') {
+				fetchGitHubUser(fetchUser);
+			}
+		},
+		[ fetchUser ]
+	);
+
+	async function fetchGitHubUser(username) {
+		setData([]);
+		setLoading(true);
+		setError(null);
+
+		try {
+			const response = await fetch(`https://api.github.com/users/${username}`);
+			const json = await response.json();
+			if (response.status !== 200) {
+				throw new Error('User not found');
+			}
+			setData(json);
+			console.log(json);
+		} catch (error) {
+			setError(error);
+			console.log(error);
+			setData(null);
+		}
+	}
+
+	return {
+		data: data,
+		loading: loading,
+		error: error,
+		onInputChange: handleInputChange,
+		onUserFetch: handleFetchUser
+	};
 }
-export function HookGithubUser({username = 'Giacomino02'}) {
-    const {data} = useGithubUser(username)
-    return (
-        <>
-            <img src={data.avatar_url} alt='user' className="avatar-profile" />
-            <h2>{data.name}</h2>
-            <a src={data.html_url}>link</a>
-        </>
-    )
+
+
+export function HookGithubUser() {
+    const { data, loading, error, onInputChange, onUserFetch } = useGithubUser();
+
+	return (
+		<div>
+			<div>
+				<label>
+					Search for GitHub users:
+					<input placeholder="Search" onChange={onInputChange} />
+					<button onClick={onUserFetch}>add</button>
+				</label>
+			</div>
+			{loading && (
+				<div>
+					<p>
+						<i>Loading</i>
+					</p>
+				</div>
+			)}
+			{error && (
+				<div>
+					<p>User not found!</p>
+				</div>
+			)}
+			{data && (
+				<div>
+					<img src={data.avatar_url} alt="user" className="profile-avatar" />
+					<h1>{data.name}</h1>
+					<p>{data.html_url}</p>
+				</div>
+			)}
+		</div>
+	);
 
 }
