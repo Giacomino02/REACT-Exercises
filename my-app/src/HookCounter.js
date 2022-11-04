@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 export function UseCounter(initialValue = 0) {
     const [counter, setCounter] = useState(initialValue);
 
-    function handleCounterIncrement() {
-        setCounter((count) => count + 1);
-    }
+    const handleCounterIncrement = useCallback(function handleCounterIncrement(){
+        setCounter((count) => count + 1)
+    }, [])
 
-    function handleCounterDecrement() {
-        setCounter((count) => count - 1);
-    }
+    const handleCounterDecrement = useCallback(function handleCounterDecrement(){
+        setCounter((count) => count - 1)
+    }, [])
 
-    function handleCounterReset() {
+    const handleCounterReset = useCallback(function handleCounterReset(){
         setCounter(initialValue);
-    }
+    }, [initialValue])
 
     return {
         counter: counter,
@@ -30,15 +30,9 @@ export function HookCounter({ initialValue = 0 }) {
         <div>
             <h1>Count: {counter}</h1>
             <div>
-                <button onClick={onIncrement}>
-                    Increment
-                </button>
-                <button onClick={onDecrement}>
-                    Decrement
-                </button>
-                <button onClick={onReset}>
-                    Reset
-                </button>
+                <button onClick={onIncrement}>Increment</button>
+                <button onClick={onDecrement}>Decrement</button>
+                <button onClick={onReset}>Reset</button>
             </div>
         </div>
     );
