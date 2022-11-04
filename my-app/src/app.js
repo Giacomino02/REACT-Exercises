@@ -16,6 +16,7 @@ import { GithubUserList } from './GithubUserList';
 import { HookCounter } from './HookCounter';
 import { HookForm } from './HookForm';
 import { HookGithubUser } from './GithubUser';
+import { CardDetails } from './CardDetails';
 
 const name = <strong>Alfio</strong>
 export function App() {
@@ -26,6 +27,12 @@ export function App() {
         console.log('count', count);
     }
 
+    const initialData = {
+        brand: 'Audi',
+        model: 'R8',
+        color: 'White',
+        year: '2008'
+    }
     // handleLanguageChange = (event) => {
     //     this.setState({
     //         lang: event.target.value
@@ -75,6 +82,8 @@ export function App() {
                 <GithubUserList />
                 <HookCounter />
                 <HookForm />
+
+                <CardDetails initialData={initialData}/>
             </div>
         )
 }
