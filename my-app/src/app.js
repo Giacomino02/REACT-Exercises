@@ -19,6 +19,7 @@ import { HookGithubUser } from './GithubUser';
 import { CardDetails } from './CardDetails';
 import { LanguageComponent } from './languageContext';
 import { FilteredList } from './FilteredList';
+import {Routes, Route} from "react-router-dom"
 
 const name = <strong>Alfio</strong>
 export function App() {
@@ -45,9 +46,10 @@ export function App() {
     return (
         <div>
             <Hello />
-            <Welcome name={name} age={20} />
+            <Routes>
+                <Route path="/" element={<Welcome name="Giacomo"/>}/>
+            </Routes>
             <Counter />
-
 
             <ClickCounter onCounterChange={onCounterChange} />
             <ClickTracker />
