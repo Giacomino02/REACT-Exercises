@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 import { GithubUser } from "./GithubUser";
 
 
@@ -44,7 +45,7 @@ export function GithubUserList() {
         <div>
             <div>
                 <label>
-                    Github users list: 
+                    Github users list:
                     <div>
                         <input
                             name='username'
@@ -54,10 +55,17 @@ export function GithubUserList() {
                             onChange={handleInputChange}
                         />
                         <button onClick={handleUserAdd}>Aggiungi</button>
+                        <div>
+                            {userArray.map((user, index) => (
+                                <>
+                                    <Link to={user} key={index} user={user}>{user}</Link>
+                                    <Outlet />
+                                </>
+                            ))}
+                        </div>
                     </div>
                 </label>
             </div>
-            <div>{userList}</div>
         </div>
     );
 }
