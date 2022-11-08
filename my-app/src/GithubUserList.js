@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { GithubUser, Githubuser, HookGithubUser } from "./GithubUser";
+
 
 export function GithubUserList() {
     const [userArray, setUserArray] = useState([]);
@@ -31,7 +31,7 @@ export function GithubUserList() {
     const userList = userArray.map((userItem, index) => (
         <div key={userItem + index}>
             <div>
-                <HookGithubUser username={userItem} />
+                <GithubUser username={userItem} />
             </div>
             <div>
                 <button onClick={() => removeItem(userItem)}>remove</button>
