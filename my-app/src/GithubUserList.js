@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HookGithubUser } from "./GithubUser";
+import { GithubUser } from "./GithubUser";
 // import { GithubUser, HookGituhubUser } from "./GithubUser";
 
 export function GithubUserList() {
@@ -32,7 +32,7 @@ export function GithubUserList() {
     const userList = userArray.map((userItem, index) => (
         <div key={userItem + index}>
             <div>
-                <HookGithubUser username={userItem} />
+                <GithubUser username={userItem} />
             </div>
             <div>
                 <button onClick={() => removeItem(userItem)}>remove</button>

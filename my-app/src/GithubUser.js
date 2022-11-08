@@ -55,7 +55,7 @@ export function useGithubUser() {
 		onUserFetch: handleFetchUser
 	};
 }
-export function HookGithubUser({username = 'Giacomino02'}) {
+export function GithubUser({username = 'Giacomino02'}) {
     const {data} = useGithubUser(username)
     return (
         <>

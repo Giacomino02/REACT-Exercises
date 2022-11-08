@@ -20,6 +20,7 @@ import { CardDetails } from './CardDetails';
 import { LanguageComponent } from './languageContext';
 import { FilteredList } from './FilteredList';
 import {Routes, Route} from "react-router-dom"
+import { ShowGithubUser } from './ShowGithubUser';
 
 const name = <strong>Alfio</strong>
 export function App() {
@@ -47,11 +48,12 @@ export function App() {
         <div>
             <Hello />
             <Routes>
-                <Route path="/" element={<Welcome name="Giacomo"/>}/>
+                <Route path="/" element={<Welcome name="Giacomo" age="20"/>}/>
+                <Route path='/users/:username' element={<ShowGithubUser />}/>
             </Routes>
             <Counter />
 
-            <ClickCounter onCounterChange={onCounterChange} />
+            {/* <ClickCounter onCounterChange={onCounterChange} />
             <ClickTracker />
             <Interactivewelcome />
             <Login />
@@ -75,7 +77,7 @@ export function App() {
             </Container>
 
             <LanguageComponent />
-            {/* <div>
+            <div>
                     <select value={this.state.lang} onChange={this.handleLanguageChange}>
                         <option value="English">English</option>
                         <option value="Italiano">Italiano</option>
@@ -83,18 +85,18 @@ export function App() {
                     <LanguageContext.Provider value={this.state.lang}>
                         <DisplayLanguage />
                     </LanguageContext.Provider>
-                </div> */}
+                </div>
 
             <Sum />
 
-            <HookGithubUser />
-            <GithubUserList />
+            {/* <HookGithubUser /> */}
+            {/* <GithubUserList />
             <HookCounter />
             <HookForm />
 
             <CardDetails initialData={initialData} />
 
-            <FilteredList usersArray={usersArray} />
+            <FilteredList usersArray={usersArray} /> */}
         </div>
     )
 }
