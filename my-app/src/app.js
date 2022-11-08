@@ -1,7 +1,6 @@
 import React from 'react';
 import { Hello } from './hello';
 import { Welcome } from './welcome';
-import Counter from './counter';
 import ClickCounter from './clickCounter';
 import ClickTracker from './clickTracker';
 import Interactivewelcome from './interactiveWelcome';
@@ -19,9 +18,10 @@ import { HookGithubUser } from './GithubUser';
 import { CardDetails } from './CardDetails';
 import { LanguageComponent } from './languageContext';
 import { FilteredList } from './FilteredList';
-import {Routes, Route} from "react-router-dom"
+import { Routes, Route } from 'react-router-dom'
+import Counter from './counter';
+import { ShowGithubUser } from './ShowGithubUser';
 
-const name = <strong>Alfio</strong>
 export function App() {
 
     function onCounterChange(count) {
@@ -45,12 +45,14 @@ export function App() {
     ]
     return (
         <div>
-            <Hello />
-            <Routes>
-                <Route path="/" element={<Welcome name="Giacomo"/>}/>
-            </Routes>
-            <Counter />
 
+            
+            <Routes>
+                <Route path='/' element={<Welcome name='Giacomo' age='20' />} />
+                <Route path='/counter' element={<Counter/>}/>
+            </Routes>
+
+            <Hello />
             <ClickCounter onCounterChange={onCounterChange} />
             <ClickTracker />
             <Interactivewelcome />

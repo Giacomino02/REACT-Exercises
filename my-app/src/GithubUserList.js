@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HookGithubUser } from "./GithubUser";
-// import { GithubUser, HookGituhubUser } from "./GithubUser";
+import { GithubUser, Githubuser, HookGithubUser } from "./GithubUser";
 
 export function GithubUserList() {
     const [userArray, setUserArray] = useState([]);
