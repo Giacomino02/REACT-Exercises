@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { GithubUser } from "./GithubUser";
 
 
 export function GithubUserList() {

@@ -18,7 +18,9 @@ import { HookGithubUser } from './GithubUser';
 import { CardDetails } from './CardDetails';
 import { LanguageComponent } from './languageContext';
 import { FilteredList } from './FilteredList';
-import {Routes, Route} from "react-router-dom"
+import { Routes, Route, Link } from "react-router-dom"
+import { ShowGithubUser } from './ShowGithubUser';
+import Counter from './counter';
 
 export function App() {
 
@@ -44,10 +46,16 @@ export function App() {
     return (
         <div>
 
-            
+            <nav style={{ display: 'flex', justifyContent: 'space-around'}}>
+                <Link to="./" style={{textDecoration: 'none'}}><h2 style={{color: 'red'}}>Home</h2></Link>
+                <Link to="./counter" style={{textDecoration: 'none'}} ><h2 style={{color: 'green'}}>Counter</h2></Link>
+                <Link to="./users/Giacomino02" style={{textDecoration: 'none'}}><h2 style={{color: 'blue'}}>User</h2></Link>
+            </nav>
+
             <Routes>
-                <Route path="/" element={<Welcome name="Giacomo"/>}/>
-                
+                <Route path="/" element={<Welcome name="Giacomo" />} />
+                <Route path='/counter' element={<Counter />} />
+                <Route path='/users/:username' element={<ShowGithubUser />}/>
             </Routes>
 
             {/* <ClickCounter onCounterChange={onCounterChange} />
