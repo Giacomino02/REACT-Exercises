@@ -56,6 +56,7 @@ export function App() {
                 <Route path="/" element={<Welcome name="Giacomo" />} />
                 <Route path='/counter' element={<Counter />} />
                 <Route path='/users/:username' element={<ShowGithubUser />}/>
+                <Route path='*' element={<div><h1>Not Found</h1></div>}/>
             </Routes>
 
             {/* <ClickCounter onCounterChange={onCounterChange} />
