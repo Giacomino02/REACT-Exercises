@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { GithubUser } from "./GithubUser";
 
-
 export function GithubUserList() {
     const [userArray, setUserArray] = useState([]);
     const [inputValue, setInputValue] = useState('');
